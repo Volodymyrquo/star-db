@@ -1,3 +1,2 @@
-import ItemDetails from "./item-details"
-
-export default ItemDetails
+export * from "./item-details"
+export { default as default } from "./item-details"
