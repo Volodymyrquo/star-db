@@ -6,7 +6,7 @@ const Record = ({ item, field, label }) => {
   return (
     <li className="list-group-item">
       <span className="term">{label}</span>
-      <span>{field}</span>
+      <span>{item[field]}</span>
     </li>
   )
 }
@@ -40,17 +40,19 @@ export default class ItemDetails extends Component {
     if (!this.state.item) {
       return <span>Select a item from a list</span>
     }
-    const {
-      item: { id, name, gender, birthYear, eyeColor },
-      image,
-    } = this.state
+    const { item, image } = this.state
+    const { id, name, gender, birthYear, eyeColor } = item
     return (
       <div className="person-details card">
         <img className="person-image" src={image} />
 
         <div className="card-body">
           <h4>{name}</h4>
-          <ul className="list-group list-group-flush">{this.props.children}</ul>
+          <ul className="list-group list-group-flush">
+            {React.Children.map(this.props.children, (child) => {
+              return React.cloneElement(child, { item })
+            })}
+          </ul>
         </div>
       </div>
     )
