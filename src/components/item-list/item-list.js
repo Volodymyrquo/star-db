@@ -3,7 +3,7 @@ import Spinner from "../spinner"
 
 import "./item-list.css"
 
-export default class ItemList extends Component {
+class ItemList extends Component {
   state = {
     itemsList: null,
   }
@@ -36,3 +36,8 @@ export default class ItemList extends Component {
     return <ul className="item-list list-group">{items}</ul>
   }
 }
+
+const f = () => {
+  return ItemList
+}
+export default f()
