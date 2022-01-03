@@ -1,15 +1,9 @@
 import React, { Component } from "react"
 import ItemList from "../item-list"
-import PersonDetails from "../item-details"
+import ItemDetails from "../item-details"
 import ErrorBoundry from "../error-boundry"
-const Row = ({ left, right }) => {
-  return (
-    <div className="row mb2">
-      <div className="col-md-6">{left}</div>
-      <div className="col-md-6">{right}</div>
-    </div>
-  )
-}
+import Row from "../row/row"
+
 export default class PeoplePage extends Component {
   state = {
     selectedPerson: 3,
@@ -29,7 +23,7 @@ export default class PeoplePage extends Component {
         {(i) => `${i.name} (${i.gender}, ${i.birthYear})`}
       </ItemList>
     )
-    const personDetails = <PersonDetails personId={this.state.selectedPerson} />
+    const personDetails = <ItemDetails personId={this.state.selectedPerson} />
 
     return (
       <ErrorBoundry>
