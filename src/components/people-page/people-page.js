@@ -7,7 +7,6 @@ import Row from "../row/row"
 export default class PeoplePage extends Component {
   state = {
     selectedPerson: 3,
-    hasError: false,
   }
   onPersonSelected = (id) => {
     this.setState({

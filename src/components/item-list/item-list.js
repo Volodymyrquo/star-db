@@ -38,6 +38,10 @@ class ItemList extends Component {
 }
 
 const f = () => {
-  return ItemList
+  return class extends Component {
+    render() {
+      return <ItemList {...this.props} />
+    }
+  }
 }
 export default f()
